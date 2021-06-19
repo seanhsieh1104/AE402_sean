@@ -72,7 +72,7 @@ while not done:
     allspriteslist.add(segment)
     screen.fill(black)
     allspriteslist.draw(screen)
-    if segment_head_x >= 700 or segment_head_y >= 500:
+    if segment_head_x >= 700 or segment_head_y >= 500 or segment_head_x <= 0 or segment_head_y <= 0:
         text = font.render('Game Over',50,green)
         screen.blit(text,(100,100))
         print('Game Over')
