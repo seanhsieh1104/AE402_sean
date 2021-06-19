@@ -7,6 +7,7 @@ Created on Sat Mar 20 10:08:48 2021
 
 import pygame
 import time
+import random
 from queue import Queue
 black=(0,0,0)
 white=(255,255,255)
@@ -22,9 +23,13 @@ y_change = 0
 
 class Segment(pygame.sprite.Sprite):
     def __init__(self,x,y):
+        color1 = random.randint(0,255)
+        color2 = random.randint(0,255)
+        color3 = random.randint(0,255)
+        color = [color1,color2,color3]
         super().__init__()
         self.image = pygame.Surface([segment_width,segment_height])
-        self.image.fill(white)
+        self.image.fill(color)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -36,7 +41,7 @@ screen=pygame.display.set_mode(size)
 pygame.display.set_caption("貪吃蛇貪吃蛇")
 allspriteslist = pygame.sprite.Group()
 snake_segments = Queue()
-for i in range(15):
+for i in range(18):
     x = 0 + (segment_width + segment_margin) * i
     y = 30
     segment = Segment(x,y)
